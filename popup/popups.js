@@ -1,4 +1,6 @@
+//variables
 var toggleTurn = false;
+var isLogged = false;
 //popup views
 var viewBalancePopup = document.getElementById("viewBalancePopup");
 var addAmountPopup = document.getElementById("addAmountPopup");
@@ -17,6 +19,7 @@ var btnCloseLogin = document.getElementById("btnCloseLogin");
 
 //entire page view
 var pagePlattform = document.getElementById("pagePlattform");
+var controlView = document.getElementById("controlView");
 
 //close & open functions
 function openPopupFn(elementName){
