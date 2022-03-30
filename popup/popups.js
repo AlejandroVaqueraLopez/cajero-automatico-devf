@@ -32,6 +32,12 @@ var lblWarningSignReduceAmount= document.getElementById("lblWarningSignReduceAmo
 var pagePlattform = document.getElementById("pagePlattform");
 var controlView = document.getElementById("controlView");
 
+// render values 
+var lblBalanceValue = document.getElementById("lblBalanceValue");
+var dateTransactionList = document.getElementById("dateTransactionList");
+var amountTransactionList = document.getElementById("amountTransactionList");
+var actionTransactionList = document.getElementById("actionTransactionList");
+
 //close & open functions
 function openPopupFn(elementName){
 	console.log("open");
@@ -101,10 +107,19 @@ btnCloseLogin.addEventListener("click",function(){
 })
 //transaction success (ingresar,retirar monto) events
 btnAddAmountSuccess.addEventListener("click",function(){
-	(transactionPass === true)
-	? successFn(addAmountPopup)
-	: console.log("Must be numbers in value")
-	
+	if(transactionPass === true ){
+		//we make the transaction
+		addAmountFn(parseInt(txtAddAmountValue.value),user[0]);
+		//we make render the data again to update 
+		lblBalanceValue.innerHTML = viewBalanceFn(user[0]);
+		dateTransactionList.innerHTML = dateTransactionItemCreator(user[0]);
+		amountTransactionList.innerHTML = amountTransactionItemCreator(user[0]);
+		actionTransactionList.innerHTML = actionTransactionItemCreator(user[0]);
+		//we finish (close and open view balance popup)
+		successFn(addAmountPopup);
+	}else{
+		console.log("Must be numbers in value")
+	}
 })
 btnReduceAmountSuccess.addEventListener("click",function(){
 	(transactionPass === true)
@@ -133,3 +148,19 @@ txtReduceAmountValue.addEventListener("input",function(){
 		lblWarningSignReduceAmount.style.display = "block"
 	)
 })
+
+
+
+//PROBANDO APENAS ESTA FUNCIONALIDAD (INGRESAR,CONSULTAR,RETIRAR)
+
+//first rendering (they render when again change)
+
+//rendering view amount data
+lblBalanceValue.innerHTML = viewBalanceFn(user[0]);
+//rendering view transaction history data
+dateTransactionList.innerHTML = dateTransactionItemCreator(user[0]);
+amountTransactionList.innerHTML = amountTransactionItemCreator(user[0]);
+actionTransactionList.innerHTML = actionTransactionItemCreator(user[0]);
+
+
+//add amount functions
