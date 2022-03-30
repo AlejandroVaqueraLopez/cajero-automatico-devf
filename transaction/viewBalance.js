@@ -1,32 +1,14 @@
-globalThis.user = [
-    {
-        id:1,
-        name:"alejandro",
-        email:"ale@gmail.com",
-        password:"hola",
-        balance:10,
-        transactions:[
-            {
-                date:"2022-2-01",
-                amount:10,
-                action:"Retiro"
-            }
-        ]
-    }
-];
-
 function viewBalanceFn(user){
     //return the balance of user
     return user.balance;
 }
 
-
 //for the date transaction history
 function dateTransactionItemCreator(user){
     var dateTransactionItem = ``;
-    var cont = 0;
+    var cont = user.transactions.length - 1;
 
-    for(cont = 0; cont < user.transactions.length; cont++){
+    for(cont = user.transactions.length - 1; cont >= 0; cont--){
         dateTransactionItem += `
             <li>${user.transactions[cont].date}</li>
         `;
@@ -36,9 +18,9 @@ function dateTransactionItemCreator(user){
 //for the amount history
 function amountTransactionItemCreator(user){
     var amountTransactionItem = ``;
-    var cont = 0;
+    var cont = user.transactions.length - 1;
 
-    for(cont = 0; cont < user.transactions.length; cont++){
+    for(cont = user.transactions.length - 1; cont >= 0; cont--){
         amountTransactionItem += `
             <li>${user.transactions[cont].amount}</li>
         `;
@@ -48,9 +30,9 @@ function amountTransactionItemCreator(user){
 //for the transaction action history
 function actionTransactionItemCreator(user){
     var actionTransactionItem = ``;
-    var cont = 0;
+    var cont = user.transactions.length - 1;
 
-    for(cont = 0; cont < user.transactions.length; cont++){
+    for(cont = user.transactions.length - 1; cont >= 0; cont--){
         actionTransactionItem += `
             <li>${user.transactions[cont].action}</li>
         `;

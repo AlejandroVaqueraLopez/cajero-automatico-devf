@@ -1,6 +1,6 @@
 //variables
 var toggleTurn = false;
-var transactionPass = false; 
+var transactionRegexPass = false; 
 
 //popup views
 var viewBalancePopup = document.getElementById("viewBalancePopup");
@@ -107,7 +107,7 @@ btnCloseLogin.addEventListener("click",function(){
 })
 //transaction success (ingresar,retirar monto) events
 btnAddAmountSuccess.addEventListener("click",function(){
-	if(transactionPass === true ){
+	if(transactionRegexPass=== true ){
 		//we make the transaction
 		addAmountFn(parseInt(txtAddAmountValue.value),user[0]);
 		//we make render the data again to update 
@@ -115,43 +115,28 @@ btnAddAmountSuccess.addEventListener("click",function(){
 		dateTransactionList.innerHTML = dateTransactionItemCreator(user[0]);
 		amountTransactionList.innerHTML = amountTransactionItemCreator(user[0]);
 		actionTransactionList.innerHTML = actionTransactionItemCreator(user[0]);
-		//we finish (close and open view balance popup)
+		//we finish (close current view and open view balance popup)
 		successFn(addAmountPopup);
 	}else{
 		console.log("Must be numbers in value")
 	}
 })
+
 btnReduceAmountSuccess.addEventListener("click",function(){
-	(transactionPass === true)
-	? successFn(reduceAmountPopup)
-	: console.log("Must be numbers in value")
+	if(transactionRegexPass=== true ){
+		//we make the transaction
+		reduceAmountFn(parseInt(txtReduceAmountValue.value),user[0]);
+		//we make render the data again to update 
+		lblBalanceValue.innerHTML = viewBalanceFn(user[0]);
+		dateTransactionList.innerHTML = dateTransactionItemCreator(user[0]);
+		amountTransactionList.innerHTML = amountTransactionItemCreator(user[0]);
+		actionTransactionList.innerHTML = actionTransactionItemCreator(user[0]);
+		//we finish (close current view and open view balance popup)
+		successFn(reduceAmountPopup);
+	}else{
+		console.log("Must be numbers in value")
+	}
 })
-
-//regex for input values(ingresar, retirar)
-var transactionRegex = /^[0-9]+$/;
-
-txtAddAmountValue.addEventListener("input",function(){
-	transactionPass = transactionRegex.test(txtAddAmountValue.value);
-	(transactionPass === true)
-	?(
-		lblWarningSignAddAmount.style.display = "none"
-	):(
-		lblWarningSignAddAmount.style.display = "block"
-	)
-})
-txtReduceAmountValue.addEventListener("input",function(){
-	transactionPass = transactionRegex.test(txtReduceAmountValue.value);
-	(transactionPass === true)
-	?(
-		lblWarningSignReduceAmount.style.display = "none"
-	):(
-		lblWarningSignReduceAmount.style.display = "block"
-	)
-})
-
-
-
-//PROBANDO APENAS ESTA FUNCIONALIDAD (INGRESAR,CONSULTAR,RETIRAR)
 
 //first rendering (they render when again change)
 
@@ -161,6 +146,3 @@ lblBalanceValue.innerHTML = viewBalanceFn(user[0]);
 dateTransactionList.innerHTML = dateTransactionItemCreator(user[0]);
 amountTransactionList.innerHTML = amountTransactionItemCreator(user[0]);
 actionTransactionList.innerHTML = actionTransactionItemCreator(user[0]);
-
-
-//add amount functions
