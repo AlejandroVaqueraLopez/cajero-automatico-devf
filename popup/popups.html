@@ -110,7 +110,7 @@
 					<label class="text-white lblBalance">Saldo Actual</label>
 				</div>
 				<div class="row text-center d-flex align-items-center actualBalanceValueRow">
-					<label class="text-white lblBalanceValue">0.00</label>
+					<label id="lblBalanceValue" class="text-white lblBalanceValue"></label>
 				</div>
 			</div>
 		</div>
@@ -125,31 +125,28 @@
 				<div class="row historyContainer ">
 					<div class="col-4 pe-0">
 						<label class="text-white border-bottom ">Fecha</label>
-						<ul class="text-white p-0 ">
-							<li class="">2022-05-01</li>
-							<li class="">2022-05-01</li>
-							<li class="">2022-05-01</li>
-							<li class="">2022-05-01</li>
+						<ul id="dateTransactionList" class="text-white p-0 ">
+							<!--dateTransactionItem-->
+							<!--dateTransactionItem-->
+							<!--dateTransactionItem-->
 						</ul>
 					</div>
 
 					<div class="col-4 p-0">
 						<label class="text-white border-bottom ">Monto</label>
-						<ul class="text-white p-0">
-							<li class="">$500</li>
-							<li class="">$500</li>
-							<li class="">$500</li>
-							<li class="">$500</li>
+						<ul id="amountTransactionList"class="text-white p-0">
+							<!--amountTransactionItem-->
+							<!--amountTransactionItem-->
+							<!--amountTransactionItem-->
 						</ul>
 					</div>
 
 					<div class="col-4 pe-4 ps-0">
 						<label class="text-white border-bottom ">Transacción</label>
-						<ul class="text-white p-0">
-							<li class="">Retiro</li>
-							<li class="">Retiro</li>
-							<li class="">Ingreso</li>
-							<li class="">Retiro</li>
+						<ul id="actionTransactionList" class="text-white p-0">
+							<!--actionTransactionItem-->
+							<!--actionTransactionItem-->
+							<!--actionTransactionItem-->
 						</ul>
 					</div>
 					
@@ -200,6 +197,9 @@
 		</footer>
 
 	</div>
+	<script src="../transaction/validateBalance.js"></script>
+	<script src="../transaction/addAmount.js"></script>
+	<script src="../transaction/viewBalance.js"></script>
 	<script src="./popups.js"></script>
 </body>
 </html>
