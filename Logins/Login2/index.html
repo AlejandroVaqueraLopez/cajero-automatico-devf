@@ -1,32 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="shortcut icon" href="img/cajero-automatico.png">
 </head>
+
 <body>
     <div class="login-box">
-        <h2>Login</h2>
-        <form action="">
-            <div class="user-box">
-                <input type="text" name="" required="">
-                <label for="" >Cuenta</label>
+        <h2>Cajero</h2>
+        <form>
+            <h3 id="cuenta_selec"></h3>
+            <div id="area">
+                
             </div>
             <div class="user-box">
-                <input type="password" name="" required="">
-                <label for="">Password</label>
+                <input id="contra" type="password" name="" required="">
+                <label for="contra">Password</label>
             </div>
-            <a href="#">
+            <a id="log" href="#">
                 <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
-                Submit
+                Acceder
+            </a>
+            <a id="abrirReg" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Registrar otra cuenta
+            </a>
+            <a id="admin" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Eliminar cuenta
             </a>
         </form>
+        <div id="registro" class="login-box modal-container fondo_registro">
+            <a id="cerrar" href="#">
+                Cerrar
+            </a>
+            <h2>Cajero</h2>
+            <form>
+                <div class="user-box">
+                    <input id="caunt" type="text" name="" required="">
+                    <label for="contra">Cuenta</label>
+                </div>
+                <div class="user-box">
+                    <input id="pass" type="password" name="" required="">
+                    <label for="contra">Password</label>
+                </div>
+                <a id="registrar" href="#">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Registrar
+                </a>
+            </form>
     </div>
+    <div id="administrar" class="login-box  modal-container fondo_cuentas">
+        <a id="cerrarAdmin" href="#">
+            Cerrar
+        </a>
+        <h2>Cajero</h2>
+        <form>
+            <h3>¿Eliminar?</h3>
+            <h3 id="cuenta_eliminar"></h3>
+            <a id="si" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Si
+            </a>
+            <a id="no" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                No
+            </a>
+        </form>
+</div>
+    <script src="./js/main.js"></script>
 </body>
+
 </html>

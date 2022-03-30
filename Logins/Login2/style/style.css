@@ -21,7 +21,7 @@ html {
     border-radius: 10px;
   }
   
-  .login-box h2 {
+  .login-box h2,.login-box h3 {
     margin: 0 0 30px;
     padding: 0;
     color: #fff;
@@ -62,8 +62,9 @@ html {
     font-size: 12px;
   }
   
-  .login-box form a {
+  .login-box form a, #cerrar,#cerrarAdmin {
     position: relative;
+    background: linear-gradient(#141e30, #243b55);
     display: inline-block;
     padding: 10px 20px;
     color: #03e9f4;
@@ -72,8 +73,10 @@ html {
     text-transform: uppercase;
     overflow: hidden;
     transition: .5s;
-    margin-top: 40px;
-    letter-spacing: 4px
+   
+    margin-bottom: 30px;
+    letter-spacing: 4px;
+    border: none;
   }
   
   .login-box a:hover {
@@ -165,4 +168,12 @@ html {
       bottom: 100%;
     }
   }
-  
+  .modal-container{
+    display:none; 
+  }
+  .fondo_registro{
+    background: rgba(11, 43, 146, 0.8);
+  }
+  .fondo_cuentas{
+    background:rgb(235, 33, 19,0.7) ;
+  }
