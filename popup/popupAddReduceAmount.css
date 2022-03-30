@@ -53,4 +53,7 @@
 	.lblAmount{
 		font-size:20px;
 	}
+    .txtAmountValue{
+        font-size:40px;
+    }
 }

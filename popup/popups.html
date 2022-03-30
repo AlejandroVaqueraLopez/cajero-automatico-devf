@@ -29,14 +29,14 @@
 			<div class="row btnCloseRow d-flex justify-content-end align-items-center px-2">
 				<button id="btnCloseLogin" class="btnClose"></button>
 			</div>
-			<div class="row btnCloseRow d-flex justify-content-center align-items-center px-2">
-				<img class="loginImg" src="../assets/images/user-profile-icon.png" alt="user-profile-icon.png">
-			</div>
 			<div class="row btnCloseRow d-flex justify-content-end align-items-center px-2">
 				<h3 class="text-center text-white">UserName</h3>
 			</div>
 			<div class="row d-flex justify-content-center ">
 				<button class="btnGlobal btnLogin my-1">Editar datos</button>
+			</div>
+			<div class="row d-flex justify-content-center ">
+				<button class="btnGlobal btnLogin my-1">Eliminar cuenta</button>
 			</div>
 			<div class="row d-flex justify-content-center">
 				<button class="btnGlobal btnLogin my-1">Salir</button>
@@ -44,7 +44,7 @@
 		</div>
 	</div>
 
-	<!--popup add amount-->
+	<!--popup reduce amount-->
 	<div id="reduceAmountPopup" class="container-fluid bRadius popupMini px-3">
 		<div class="row btnCloseRow d-flex justify-content-end align-items-center px-2">
 			<button id="btnCloseReduceAmount" class="btnClose"></button>
@@ -56,14 +56,15 @@
 					<label class="text-white lblAmount">Ingrese monto a retirar</label>
 				</div>
 				<div class="row text-center txtAmountRow">
-					<input type="text" placeholder="0.00" class="text-white txtAmountValue">
+					<input id="txtReduceAmountValue" type="text" placeholder="0.00" class="text-white txtAmountValue">
+					<h6 class="text-white lblWarningSign my-2" id="lblWarningSignReduceAmount">Solo puedes ingresar un monto numerico y entero</h6>
 				</div>
 			</div>
 		</div>
 
 		<div class="row mx-3">
 			<div class="col px-0">
-				<button class="btnGlobal btnSuccess">Aceptar</button>
+				<button id="btnReduceAmountSuccess" class="btnGlobal btnSuccess">Aceptar</button>
 			</div>
 		</div>
 	</div>
@@ -81,8 +82,9 @@
 				<div class="row lblAmountRow">
 					<label class="text-white lblAmount">Ingrese monto a ingresar</label>
 				</div>
-				<div class="row text-center txtAmountRow">
-					<input type="text" placeholder="0.00" class="text-white txtAmountValue">
+				<div class="row text-center txtAmountRow my-1">
+					<input id="txtAddAmountValue" type="text" placeholder="0.00" class="text-white txtAmountValue">
+					<h6 class="text-white lblWarningSign my-2" id="lblWarningSignAddAmount">Solo puedes ingresar un monto numerico y entero</h6>
 				</div>
 
 			</div>
@@ -90,7 +92,7 @@
 
 		<div class="row mx-3">
 			<div class="col px-0">
-				<button class="btnGlobal btnSuccess">Aceptar</button>
+				<button id="btnAddAmountSuccess" class="btnGlobal btnSuccess">Aceptar</button>
 			</div>
 		</div>
 	</div>
@@ -172,32 +174,6 @@
 
 		<main class="container-fluid ">
 
-			<div id="loginView" class="row d-flex align-items-center justify-content-center">
-				<div class="col-12 d-flex justify-content-center border flex-wrap p-0">
-					<div class="row d-flex justify-content-center p-0">
-
-							<div class="form border">
-								<div class="input-group border d-flex flex-column">
-									<label for="name">Nombre:</label>
-									<input type="text" name="name" class="text-white btnGlobal d-flex my-3 flex-column align-items-center justify-content-end" id="txtName">
-								</div>
-								<div class="input-group d-flex flex-column">
-									<label for="email">Correo:</label>
-									<input name="email" type="email" class="text-white btnGlobal d-flex my-3 flex-column align-items-center justify-content-end" id="txtEmail">
-								</div>
-								<div class="input-group d-flex flex-column">
-									<label for="password">Contraseña:</label>
-									<input name="password" type="password" class="text-white btnGlobal d-flex my-3 flex-column align-items-center justify-content-end" id="txtPassword">
-								</div>
-								<div class="input-group d-flex flex-column">
-									<input id="btnLogin" type="button" value="Ingresar" class="text-white btnGlobal d-flex my-3 flex-column align-items-center justify-content-end" id="btnLoginSubmit">
-								</div>
-							</div>
-
-					</div>
-				</div>
-			</div>
-
 			<div id="controlView" class="row d-flex align-items-center justify-content-center">
 				<div class="col-12 d-flex justify-content-center flex-wrap ">
 					<button class="text-white btnGlobal btnMain d-flex mx-5 my-3 flex-column align-items-center justify-content-end" id="btnViewBalance">
@@ -219,8 +195,8 @@
 
 		</main>
 
-		<footer>
-
+		<footer class="d-flex justify-content-start align-items-end">
+			<h6 class="text-white">2022 Todos los derechos reservados.</h6>
 		</footer>
 
 	</div>

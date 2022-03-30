@@ -78,7 +78,10 @@ footer{
 	background-color:#fff;
 	border-radius:10px;
 }
-
+/*warning label sign*/
+.lblWarningSign{
+	display:none;
+}
 /*buttons*/
 .btnClose{
 	height:30px;
@@ -129,5 +132,8 @@ footer{
 	}
 	.btnSuccess{
 		width:100%;
+	}
+	.lblWarningSign{
+		font-size:12px;
 	}
 }
