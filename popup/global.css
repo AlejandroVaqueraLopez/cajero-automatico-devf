@@ -14,6 +14,7 @@
 	--stDark:rgba(16,18,27,60%);
 	--ndDark:rgba(255,255,255,0.2);
 	--rdDark:#c1c1c1;
+	--thDark:rgba(204, 204, 204, 0.6);
 }
 .videoContainer{
 	position:relative;
@@ -44,37 +45,28 @@
 }
 
 header{
-	outline:solid green;
+	height:10%;
+	width:100%;
+	box-sizing:border-box;
+}
+
+
+main{
+	height:80%;
+	width:100%;
+
+}
+main > .row{
+	height:100%;
+}
+
+footer{
 	height:10%;
 	width:100%;
 }
 
-main{
-	outline:solid red;
-}
 
-
-/*popovers*/
-.popup{
-	position:absolute;
-	top:calc((100vh / 2) - 250px);
-	left:calc((100vw / 2) - 30%);
-	height:500px;
-	width:calc(60%);
-	background:linear-gradient(to right,#c24ec2,#49a7ec);
-	font-family: 'M PLUS Rounded 1c', sans-serif;
-	transform:scale(0);
-	transition:transform 0.4s;
-	z-index:4;
-
-}
-.btnCloseRow{
-	height:50px;
-}
-.historyContainer{
-	overflow-y:auto;
-	height:223px;
-}
+/*scrollbar*/
 ::-webkit-scrollbar{
 	width:10px;
 	border-radius:10px;
@@ -86,40 +78,10 @@ main{
 	background-color:#fff;
 	border-radius:10px;
 }
-.historyContainer ul li{
-	list-style:none;
+/*warning label sign*/
+.lblWarningSign{
+	display:none;
 }
-
-.actualBalanceRow{
-	height:50px;
-}
-.actualBalanceValueRow{
-	height:125px;
-}
-.actualHistoryRow{
-	height:50px;
-}
-.lblBalance{
-	font-size:30px;
-}
-
-.lblBalanceValue{
-	font-size:70px;
-}
-.lblHistory{
-	font-size:30px;
-}
-/*popover animation*/
-@keyframes openPopup{
-	0%{
-	}
-	50%{
-	}
-	100%{
-		transform:scale(1);
-	}
-}
-
 /*buttons*/
 .btnClose{
 	height:30px;
@@ -137,24 +99,29 @@ main{
 	padding:8px 10px;
 	box-sizing:border-box;
 	border:1px solid var(--rdDark);
-	background:none;
+	background-color:var(--ndDark);
+	color:#fff;
+	border-radius:30px;
+}
+.btnLogin{
+	width:60%;
+}
+.btnMain{
+	height:150px;
+	width:150px;
+	border-radius:15px;
+}
+.btnMain img{
+	height:50px;
+	width:50px;
+	margin:5px;
 }
 
 .btnGlobal:hover{
 	cursor:pointer;
-}
-
-
-/*.btnPopupConsult{
-	border:1px solid var(--rdDark);
-	color:var(--rdDark);
-	border-radius:30px;
-}
-.btnPopupConsult:hover{
 	color:#fff;
 	border:1px solid #fff;
 }
-*/
 
 @media only screen and (max-width:800px){
 	.pagePlattform{
@@ -163,30 +130,10 @@ main{
 		height:calc(100vh - 20px);
 		width:calc(100vw - 20px);
 	}
-	.popup{
-		position:absolute;
-		top:calc((100vh / 2) - 250px);
-		left:calc((100vw / 2) - 43%);
-		height:500px;
-		width:calc(86%);
-		background:linear-gradient(to right,#c24ec2,#49a7ec);
-		font-family: 'M PLUS Rounded 1c', sans-serif;
-		transform:scale(0);
-		transition:transform 0.1s;
-		z-index:4;
+	.btnSuccess{
+		width:100%;
 	}
-
-	.historyContainer div label{
-		font-size:14px;
-	}
-
-	.historyContainer div ul li{
-		font-size:10px;
-	}
-	.lblHistory{
-		font-size:20px;
-	}
-	.lblBalance{
-		font-size:20px;
+	.lblWarningSign{
+		font-size:12px;
 	}
 }
