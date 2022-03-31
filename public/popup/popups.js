@@ -30,13 +30,23 @@ var lblWarningSignReduceAmount= document.getElementById("lblWarningSignReduceAmo
 
 //entire page view
 var pagePlattform = document.getElementById("pagePlattform");
-var controlView = document.getElementById("controlView");
 
 // render values 
 var lblBalanceValue = document.getElementById("lblBalanceValue");
 var dateTransactionList = document.getElementById("dateTransactionList");
 var amountTransactionList = document.getElementById("amountTransactionList");
 var actionTransactionList = document.getElementById("actionTransactionList");
+
+function renderData(){
+	//first rendering (they render when again change)
+	//rendering view amount data
+	lblBalanceValue.innerHTML = viewBalanceFn(cuentas[userLogged]);
+	//rendering view transaction history data
+	dateTransactionList.innerHTML = dateTransactionItemCreator(cuentas[userLogged]);
+	amountTransactionList.innerHTML = amountTransactionItemCreator(cuentas[userLogged]);
+	actionTransactionList.innerHTML = actionTransactionItemCreator(cuentas[userLogged]);
+	console.log("data rendered")
+}
 
 //close & open functions
 function openPopupFn(elementName){
@@ -63,7 +73,9 @@ function successFn(elementName){
 btnViewBalancePopup.addEventListener("click",function(){
 	(toggleTurn === true)
 		? console.log("block is some window opened")
-		: openPopupFn(viewBalancePopup);
+		: (openPopupFn(viewBalancePopup),
+			renderData()
+		);
 })
 btnViewAddAmount.addEventListener("click",function(){
 	(toggleTurn === true) 
@@ -109,12 +121,9 @@ btnCloseLogin.addEventListener("click",function(){
 btnAddAmountSuccess.addEventListener("click",function(){
 	if(transactionRegexPass=== true ){
 		//we make the transaction
-		addAmountFn(parseInt(txtAddAmountValue.value),user[0]);
+		addAmountFn(parseInt(txtAddAmountValue.value),cuentas[userLogged]);
 		//we make render the data again to update 
-		lblBalanceValue.innerHTML = viewBalanceFn(user[0]);
-		dateTransactionList.innerHTML = dateTransactionItemCreator(user[0]);
-		amountTransactionList.innerHTML = amountTransactionItemCreator(user[0]);
-		actionTransactionList.innerHTML = actionTransactionItemCreator(user[0]);
+		renderData()
 		//we finish (close current view and open view balance popup)
 		successFn(addAmountPopup);
 	}else{
@@ -125,12 +134,9 @@ btnAddAmountSuccess.addEventListener("click",function(){
 btnReduceAmountSuccess.addEventListener("click",function(){
 	if(transactionRegexPass=== true ){
 		//we make the transaction
-		reduceAmountFn(parseInt(txtReduceAmountValue.value),user[0]);
+		reduceAmountFn(parseInt(txtReduceAmountValue.value),cuentas[userLogged]);
 		//we make render the data again to update 
-		lblBalanceValue.innerHTML = viewBalanceFn(user[0]);
-		dateTransactionList.innerHTML = dateTransactionItemCreator(user[0]);
-		amountTransactionList.innerHTML = amountTransactionItemCreator(user[0]);
-		actionTransactionList.innerHTML = actionTransactionItemCreator(user[0]);
+		renderData()
 		//we finish (close current view and open view balance popup)
 		successFn(reduceAmountPopup);
 	}else{
@@ -138,11 +144,3 @@ btnReduceAmountSuccess.addEventListener("click",function(){
 	}
 })
 
-//first rendering (they render when again change)
-
-//rendering view amount data
-lblBalanceValue.innerHTML = viewBalanceFn(user[0]);
-//rendering view transaction history data
-dateTransactionList.innerHTML = dateTransactionItemCreator(user[0]);
-amountTransactionList.innerHTML = amountTransactionItemCreator(user[0]);
-actionTransactionList.innerHTML = actionTransactionItemCreator(user[0]);

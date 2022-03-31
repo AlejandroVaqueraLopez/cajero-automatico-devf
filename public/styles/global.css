@@ -56,7 +56,7 @@ main{
 	width:100%;
 
 }
-main > .row{
+.principal{
 	height:100%;
 }
 
@@ -135,5 +135,15 @@ footer{
 	}
 	.lblWarningSign{
 		font-size:12px;
+	}
+	.btnMain{
+		height:120px;
+		width:120px;
+		font-size:20px;
+	}
+	.btnMain img{
+		height:30px;
+		width:30px;
+		margin:5px;
 	}
 }

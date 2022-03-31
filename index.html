@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Popups</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" type = "text/css" href="./public/styles/popupAddReduceAmount.css">	
+	<link rel="stylesheet" type = "text/css" href="./public/styles/popupViewBalance.css">	
+	<link rel="stylesheet" type="text/css" href="./public/styles/global.css">
+	<link rel="stylesheet" type="text/css" href="./public/styles/login.css">
+</head>
+<body>
+
+	<div class="videoContainer">
+		<video class="backgroundVideo" muted autoplay loop src="./public/assets/images/background.mp4">
+		</video>
+	</div>
+
+	<!--popups-->
+	<!--popup login-->
+	<div id="loginPopup" class="container-fluid  d-flex align-items-center bRadius popupMini px-3">
+		<div class="container-fluid loginContent ">
+			<div class="row btnCloseRow d-flex justify-content-end align-items-center px-2">
+				<button id="btnCloseLogin" class="btnClose"></button>
+			</div>
+			<div class="row btnCloseRow d-flex justify-content-end align-items-center px-2">
+				<h3 id="userName" class="text-center text-white">UserName</h3>
+			</div>
+			<div class="row d-flex justify-content-center ">
+				<button id="update" class="btnGlobal btnLogin my-1">Editar datos</button>
+			</div>
+			<div class="row d-flex justify-content-center ">
+				<button id="admin" class="btnGlobal btnLogin my-1">Eliminar cuenta</button>
+			</div>
+			<div class="row d-flex justify-content-center">
+				<button id="salir" class="btnGlobal btnLogin my-1">Salir</button>
+			</div>
+		</div>
+	</div>
+
+	<!--popup reduce amount-->
+	<div id="reduceAmountPopup" class="container-fluid bRadius popupMini px-3">
+		<div class="row btnCloseRow d-flex justify-content-end align-items-center px-2">
+			<button id="btnCloseReduceAmount" class="btnClose"></button>
+		</div>
+
+		<div class="row mx-3">
+			<div class="col ">
+				<div class="row lblAmountRow">
+					<label class="text-white lblAmount">Ingrese monto a retirar</label>
+				</div>
+				<div class="row text-center txtAmountRow">
+					<input id="txtReduceAmountValue" type="text" placeholder="0.00" class="text-white txtAmountValue">
+					<h6 class="text-white lblWarningSign my-2" id="lblWarningSignReduceAmount">Solo puedes ingresar un monto numerico y entero</h6>
+				</div>
+			</div>
+		</div>
+
+		<div class="row mx-3">
+			<div class="col px-0">
+				<button id="btnReduceAmountSuccess" class="btnGlobal btnSuccess">Aceptar</button>
+			</div>
+		</div>
+	</div>
+
+
+	<!--popup add amount-->
+	<div id="addAmountPopup" class="container-fluid bRadius popupMini px-3">
+		<div class="row btnCloseRow d-flex justify-content-end align-items-center px-2">
+			<button id="btnCloseAddAmount" class="btnClose"></button>
+		</div>
+
+		<div class="row mx-3">
+			<div class="col ">
+
+				<div class="row lblAmountRow">
+					<label class="text-white lblAmount">Ingrese monto a ingresar</label>
+				</div>
+				<div class="row text-center txtAmountRow my-1">
+					<input id="txtAddAmountValue" type="text" placeholder="0.00" class="text-white txtAmountValue">
+					<h6 class="text-white lblWarningSign my-2" id="lblWarningSignAddAmount">Solo puedes ingresar un monto numerico y entero</h6>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="row mx-3">
+			<div class="col px-0">
+				<button id="btnAddAmountSuccess" class="btnGlobal btnSuccess">Aceptar</button>
+			</div>
+		</div>
+	</div>
+
+
+	<!--popup view balance-->
+	<div id="viewBalancePopup"class="container-fluid bRadius popupBig">
+		<div class="row btnCloseRow d-flex justify-content-end align-items-center px-3">
+			<button id="btnCloseBalancePopup" class="btnClose"></button>
+		</div>
+
+		<div class="row mx-3">
+			<div class="col">
+				<div class="row actualBalanceRow ">
+					<label class="text-white lblBalance">Saldo Actual</label>
+				</div>
+				<div class="row text-center d-flex align-items-center actualBalanceValueRow">
+					<label id="lblBalanceValue" class="text-white lblBalanceValue"></label>
+				</div>
+			</div>
+		</div>
+
+		<div class="row ms-3 ">
+			<div class="col">
+				
+				<div class="row actualHistoryRow">
+					<label class="lblHistory text-white">Historial</label>
+				</div>
+
+				<div class="row historyContainer ">
+					<div class="col-4 pe-0">
+						<label class="text-white border-bottom ">Fecha</label>
+						<ul id="dateTransactionList" class="text-white p-0 ">
+							<!--dateTransactionItem-->
+							<!--dateTransactionItem-->
+							<!--dateTransactionItem-->
+						</ul>
+					</div>
+
+					<div class="col-4 p-0">
+						<label class="text-white border-bottom ">Monto</label>
+						<ul id="amountTransactionList"class="text-white p-0">
+							<!--amountTransactionItem-->
+							<!--amountTransactionItem-->
+							<!--amountTransactionItem-->
+						</ul>
+					</div>
+
+					<div class="col-4 pe-4 ps-0">
+						<label class="text-white border-bottom ">Transacción</label>
+						<ul id="actionTransactionList" class="text-white p-0">
+							<!--actionTransactionItem-->
+							<!--actionTransactionItem-->
+							<!--actionTransactionItem-->
+						</ul>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div id="pagePlattform" class="pagePlattform">
+
+		<header class="border-bottom ">
+			<nav class="navbar d-flex justify-content-between align-items-center">
+				<a href="#" class="navbar-brand">
+					<h1 class="text-white">NombreApp</h1>
+				</a>
+				<div id="btnViewLogin">
+					<div class="loginContainer btnGlobal d-flex flex-column justify-content-center align-items-center">
+						<img src="./public/assets/images/user-profile-icon.png" alt="user-profile-icon">
+					</div>
+				</div>
+			</nav>
+		</header>
+
+
+		<main id="" class="container-fluid">
+
+			<!-- iniciar sesion -->
+			<div id="startSesion" class="container-fluid sessionContainer px-3 ">
+				<div id="controlView" class="row d-flex justify-content-center">
+					<div class="col-12 col-lg-8 d-flex justify-content-center loginContainerRow">
+						<div class="container-fluid d-flex justify-content-center flex-column loginContent ">
+							<div class="row btnCloseRow d-flex justify-content-end cuenta-selec-row my-3 align-items-center">
+								<h3 class="text-center text-white my-3">Iniciar sesion</h3>
+								<h3 id="cuenta_selec" class="text-center text-white cuenta-selec"></h3>
+								<!-- se agragan las cuentas -->
+							</div>
+							<div id="area" class="row d-flex justify-content-center profileContainer my-3">
+								<!--user list-->
+							</div>
+							<!-- input para la contraseña -->
+							<div class="user-box d-flex flex-column align-items-center m-3">
+								<label for="contra" class="text-white formInput">Password</label>
+								<input class="formInput text-white border-bottom" id="contra" type="password" name="contra" required>
+							</div>
+							<div class="row d-flex justify-content-center">
+								<button id="log" class="btnGlobal btnLogin my-1">Acceder</button>
+							</div>
+							<div class="row d-flex justify-content-center ">
+								<button id="abrirReg" class="btnGlobal btnLogin my-1">Registrar otra cuenta</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- registrar nuevo usuario -->
+			<div id="registro" class="registerContainer popupMini bRadius">
+				<div class="container-fluid  d-flex align-items-center bRadius">
+					<div class="container-fluid loginContent ">
+						<div class="row btnCloseRow d-flex justify-content-end align-items-center">
+							<button id="cerrar" class="btnClose"></button>
+						</div>
+						<div class="row btnCloseRow d-flex justify-content-end align-items-center">
+							<h3 class="text-center text-white">Registrar cuenta</h3>
+							<h3 id="cuenta_selec" class="text-center text-white"></h3>
+							<!-- se agragan las cuentas -->
+						</div>
+						<div class="user-box d-flex align-items-center flex-column my-1">
+							<label for="caunt" class="text-white formInput">Cuenta</label>
+							<input id="caunt" class="formInput text-white border-bottom" type="text" name="caunt" required>
+						</div>
+						<!-- input para la contraseña -->
+						<div class="user-box d-flex align-items-center border flex-column my-1">
+							<label for="pass" class="text-white formInput">Password</label>
+							<input id="pass" class="text-white border-bottom formInput" type="password" name="pass" required>
+						</div>
+						<div class="row d-flex justify-content-center ">
+							<button id="registrar" class="btnGlobal btnLogin my-1">Registrar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- editar las cuentas -->
+			<div id="actualizar" class="container-fluid  d-flex align-items-center popupMini bRadius px-3 ">
+				<div class="container-fluid loginContent ">
+					<div class="row btnCloseRow d-flex justify-content-end align-items-center px-2">
+						<button id="cerrarActu" class="btnClose"></button>
+					</div>
+					<div class="row btnCloseRow d-flex justify-content-end align-items-center px-2">
+						<h3 class="text-center text-white">Editar cuenta</h3>
+						<h3 id="cuenta_selec" class="text-center text-white"></h3>
+					</div>
+					<div class="user-box d-flex align-items-center flex-column my-1">
+						<label for="cauntAct" class="text-white formInput">Cuenta</label>
+						<input id="cauntAct" class="text-white border-bottom formInput" type="text" name="" required>
+					</div>
+					<!-- input para la contraseña -->
+					<div class="user-box d-flex align-items-center flex-column my-1">
+						<label for="passAct" class="text-white formInput">Password</label>
+						<input id="passAct" class="text-white border-bottom formInput" type="password" name="" required>
+					</div>
+					<div class="row d-flex justify-content-center ">
+						<button id="actualiza" class="btnGlobal btnLogin my-1">Actualizar</button>
+					</div>
+				</div>
+			</div>
+			<!-- opcion de eliminar cuenta -->
+			<div id="eliminar" class="container-fluid popupMini  bRadius px-3">
+				<div class="container-fluid loginContent d-flex align-items-center justify-content-center flex-column">
+					<div class="row btnCloseRow d-flex justify-content-end align-items-center px-2">
+						<h3 class="text-center text-white">¿Eliminar cuenta?</h3>
+						<h3 id="cuenta_selec" class="text-center text-white"></h3>
+					</div>
+					
+					<div class="row deleteAccountRow d-flex justify-content-center">
+						<button id="si" class="btnGlobal btnLogin my-1">Si</button>
+					</div>
+					<div class="row deleteAccountRow justify-content-center">
+						<button id="no" class="btnGlobal btnLogin my-1">No</button>
+					</div>
+				</div>
+			</div>
+			<!--main menu when logged-->
+			<div id="principal" class="p-0 principal">
+				<div class="row d-flex align-items-center principal justify-content-center m-0">
+					<div class="col-12 d-flex justify-content-center flex-wrap ">
+						<button class="text-white btnGlobal btnMain d-flex mx-5 my-3 flex-column align-items-center justify-content-end" id="btnViewBalance">
+							<img src="./public/assets/images/wallet-icon.png" alt="watch-balance-icon.png">
+							<h5>Consultar saldo</h5>
+						</button>
+
+						<button class="text-white btnGlobal btnMain d-flex mx-5 my-3 flex-column align-items-center justify-content-end" id="btnViewAddAmount">
+							<img src="./public/assets/images/take-money-icon.png" alt="add-amount-icon.png">
+							<h5>Ingresar monto</h5>
+						</button>
+
+						<button class="text-white btnGlobal btnMain d-flex mx-5 my-3 flex-column align-items-center justify-content-end" id="btnViewReduceAmount">
+							<img src="./public/assets/images/money-icon.png" alt="reduce-amount-icon.png">
+							<h5>Retirar monto</h5>
+						</button>
+					</div>
+				</div>
+			</div>
+
+
+		</main>
+
+		<footer class="d-flex justify-content-start align-items-end">
+			<h6 class="text-white">2022 Todos los derechos reservados.</h6>
+		</footer>
+
+	</div>
+	<script src="./public/transaction/getDate.js"></script>
+	<script src="./public/user/userData.js"></script>
+	<script src="./public/popup/regexPopup.js"></script>
+	<script src="./public/transaction/validateBalance.js"></script>
+	<script src="./public/transaction/addAmount.js"></script>
+	<script src="./public/transaction/reduceAmount.js"></script>
+	<script src="./public/transaction/viewBalance.js"></script>
+	<script src="./public/login/login.js"></script>
+	<script src="./public/popup/popups.js"></script>
+</body>
+</html>

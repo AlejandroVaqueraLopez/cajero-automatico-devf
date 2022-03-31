@@ -1,0 +1,62 @@
+.loginContainerRow{
+    height:100%;
+}
+.loginContainer{
+	height:50px;
+	width:70px;
+
+}
+.loginImg{
+    height:35px;
+    width:58px;
+}
+.loginContent{
+    width:100%;
+    height:100%;
+}
+.sessionContainer{
+    height:100%;
+    width:100%;
+}
+.sessionContainer > .row{
+    height:100%;
+}
+.formInput{
+    width:250px;
+    height:30px;
+    border:none;
+    font-size:15px;
+    background:none;
+    border:none;
+}
+.formInput:focus{
+    outline:none;
+}
+.cuenta-selec-row{
+    height:100px;
+}
+.cuenta-selec{
+    height:50px;
+}
+.userProfileLink{
+    display:inline-block;
+    width:auto;
+	padding:8px 10px;
+	box-sizing:border-box;
+	border:1px solid var(--rdDark);
+	background-color:var(--ndDark);
+	color:#fff;
+	border-radius:30px;
+}
+.cursorPointer{
+
+}
+.userProfileLink:hover{
+	cursor:pointer;
+	color:#fff;
+	border:1px solid #fff;
+}
+.deleteAccountRow{
+    width:60%;
+    max-whidth:400px;
+}
