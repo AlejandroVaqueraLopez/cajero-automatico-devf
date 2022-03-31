@@ -1,1 +1,0 @@
-//aqui van los datos del usuario que esta logeado actualmente
