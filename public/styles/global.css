@@ -1,0 +1,149 @@
+/*Global*/
+*{
+	margin:0px;
+	padding:0px;
+}
+.bRadius{
+	border-radius:15px;
+}
+.bRadius-3{
+	border-radius:30px;
+}
+/*variables*/
+:root{
+	--stDark:rgba(16,18,27,60%);
+	--ndDark:rgba(255,255,255,0.2);
+	--rdDark:#c1c1c1;
+	--thDark:rgba(204, 204, 204, 0.6);
+}
+.videoContainer{
+	position:relative;
+	top:0;
+	height:100vh;
+	overflow:hidden;
+	border:none;
+	z-index:-1;
+}
+.backgroundVideo{
+	position:absolute;
+	top:0;
+	border:none;
+}
+
+.pagePlattform{
+	background-color:var(--stDark);
+	position:absolute;
+	top:0;
+	margin:20px;
+	padding:20px;
+	height:calc(100vh - 40px);
+	width:calc(100vw - 40px);
+	overflow-y:auto;
+	box-sizing:border-box;
+	z-index:3;
+	border-radius:15px;
+}
+
+header{
+	height:10%;
+	width:100%;
+	box-sizing:border-box;
+}
+
+
+main{
+	height:80%;
+	width:100%;
+
+}
+.principal{
+	height:100%;
+}
+
+footer{
+	height:10%;
+	width:100%;
+}
+
+
+/*scrollbar*/
+::-webkit-scrollbar{
+	width:10px;
+	border-radius:10px;
+}
+::-webkit-scrollbar-track{
+	background-color:none;
+}
+::-webkit-scrollbar-thumb{
+	background-color:#fff;
+	border-radius:10px;
+}
+/*warning label sign*/
+.lblWarningSign{
+	display:none;
+}
+/*buttons*/
+.btnClose{
+	height:30px;
+	width:30px;
+	padding:8px 10px;
+	box-sizing:border-box;
+	background:none;
+	background-image:url("../assets/images/close-icon.png");
+	background-position:center;
+	background-size:cover;
+	background-repeat:no-repeat;
+	border:none;
+}
+.btnGlobal{
+	padding:8px 10px;
+	box-sizing:border-box;
+	border:1px solid var(--rdDark);
+	background-color:var(--ndDark);
+	color:#fff;
+	border-radius:30px;
+}
+.btnLogin{
+	width:60%;
+}
+.btnMain{
+	height:150px;
+	width:150px;
+	border-radius:15px;
+}
+.btnMain img{
+	height:50px;
+	width:50px;
+	margin:5px;
+}
+
+.btnGlobal:hover{
+	cursor:pointer;
+	color:#fff;
+	border:1px solid #fff;
+}
+
+@media only screen and (max-width:800px){
+	.pagePlattform{
+		margin:10px;
+		padding:10px;
+		height:calc(100vh - 20px);
+		width:calc(100vw - 20px);
+	}
+	.btnSuccess{
+		width:100%;
+	}
+	.lblWarningSign{
+		font-size:12px;
+	}
+	.btnMain{
+		height:120px;
+		width:120px;
+		font-size:20px;
+	}
+	.btnMain img{
+		height:30px;
+		width:30px;
+		margin:5px;
+	}
+}
